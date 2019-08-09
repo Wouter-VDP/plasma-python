@@ -6,13 +6,15 @@
 #SBATCH --gres=gpu:4
 #SBATCH -c 4
 #SBATCH --mem-per-cpu=0
+#SBATCH --mail-user=wouter.vandepontseele@ukaea.uk
+#SBATCH --mail-type=ALL
 
-module load anaconda/4.4.0
-source activate PPPL
+module load anaconda/5.3.1
+source activate pppl
 module load cudatoolkit/8.0
 module load cudnn/cuda-8.0/6.0
 module load openmpi/cuda-8.0/intel-17.0/2.1.0/64
-module load intel/17.0/64/17.0.4.196
+module load intel/17.0/64/17.0.5.239
 
 #remove checkpoints for a benchmark run
 rm /scratch/gpfs/$USER/model_checkpoints/*
